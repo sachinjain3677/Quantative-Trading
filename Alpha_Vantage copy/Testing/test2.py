@@ -1,7 +1,6 @@
-l = [1,2,3]
+import pandas as pd
 
-print(1 in l)
-print(4 in l)
-
-# print(l.index(1))
-# print(type(l.index(4)))
+temp = pd.DataFrame(columns=["company name", "best model"])
+for i in range(5):
+    temp.loc[i] = [1,2]
+    print(temp)

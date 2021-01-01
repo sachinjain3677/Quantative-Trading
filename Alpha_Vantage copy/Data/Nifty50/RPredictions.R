@@ -4,7 +4,7 @@ library(rugarch)
 
 rm(list=ls())   #Clear the memory
 setwd("/Users/doof/Desktop/dataFetchProject/Alpha_Vantage/Data/Nifty50")
-for(one in 6:10){
+for(one in 0:1){
   print(one)
   print("Reading file...")
   read_file = paste(c(one, ".csv"), collapse="")
