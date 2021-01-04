@@ -1,14 +1,14 @@
 import pandas as pd
 import numpy as np
 
-models = ["sGarch", "gjrGarch", "eGarch"]
+models = ["sGARCH", "gjrGARCH", "eGARCH"]
 dists = ["norm", "std", "ged", "snorm", "sstd", "sged"]
 
 output = pd.DataFrame(columns=["Company Name", "Best Model", "Best Distribution", "Economic Significance"])
 cnt=0
-for one in range(2,26):
+for one in range(0,41):
     print("Finding Best model for company name: " + str(one) + ". Total Companies = 50")
-    file_path =  "../Data/Nifty50/" + str(one) + ".csv"
+    file_path =  "../Data/old/" + str(one) + ".csv"
 
     data = pd.read_csv(file_path, header=None, names=["timestamp", "adjusted_close"])
     data = data[-27:].reset_index(drop = True)
@@ -27,7 +27,7 @@ for one in range(2,26):
         for three in dists:
             data_this = data
 
-            path = "../Data/Nifty50/GarchPred/" + str(one) + "/" + two + "/" + two + "_" + three + ".csv"
+            path = "../Data/Nifty50/bestModel/" + str(one) + "/" + two + "/" + two + "_" + three + ".csv"
 
             model_pred = pd.read_csv(path, names=["return_prediction", "volatility_prediction"], header=0)
             ret_pred = model_pred["return_prediction"][:26]
@@ -73,4 +73,4 @@ for one in range(2,26):
     del best_dist
 
 output.reset_index(drop=True)
-output.to_csv("../Data/Nifty50/best_models.csv")
+output.to_csv("../Data/Nifty50/GarchPred/best_models.csv")

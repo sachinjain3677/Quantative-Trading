@@ -3,8 +3,8 @@ library(forecast)
 library(rugarch)
 
 rm(list=ls())   #Clear the memory
-setwd("/Users/doof/Desktop/dataFetchProject/Alpha_Vantage/Data/Nifty50")
-for(one in 0:1){
+setwd("/Users/doof/Desktop/Personal/dataFetchProject/Alpha_Vantage/Data/old")
+for(one in 36:40){
   print(one)
   print("Reading file...")
   read_file = paste(c(one, ".csv"), collapse="")
@@ -41,7 +41,7 @@ for(one in 0:1){
         pred2[i]=forc_2@forecast$sigmaFor[[1]]
       }
       pred_all=cbind(pred1,pred2)
-      path <- "./GarchPred/"
+      path <- "../Nifty50/bestModel/"
       path <- paste(c(path, one), collapse="")
       path <- paste(c(path, my_model), collapse="/")
       
