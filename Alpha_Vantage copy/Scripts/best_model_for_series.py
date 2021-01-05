@@ -6,7 +6,9 @@ dists = ["norm", "std", "ged", "snorm", "sstd", "sged"]
 
 output = pd.DataFrame(columns=["Company Name", "Best Model", "Best Distribution", "Economic Significance"])
 cnt=0
-for one in range(0,41):
+for one in range(26,41):
+    if one == 27:
+        continue
     print("Finding Best model for company name: " + str(one) + ". Total Companies = 50")
     file_path =  "../Data/old/" + str(one) + ".csv"
 
